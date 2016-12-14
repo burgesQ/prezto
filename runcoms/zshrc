@@ -38,6 +38,9 @@ alias gpp="g++ -Wall -Wextra"
 alias gccw='gcc -Wall -Wextra -Werror -I -pedantic -ansi'
 alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
 alias mk='make re && make clean'
+alias cm='rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles'
+alias cmk='cmake . && make clean && make'
+
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
 alias ne='emacs -nw'
