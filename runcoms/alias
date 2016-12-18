@@ -1,0 +1,40 @@
+# MOFO alias
+
+alias md='mkdir'
+alias cl='mr_clean'
+
+alias grep='grep --color'
+alias ls='ls --color'
+alias ll='ls -l'
+alias la='ls -la'
+alias l='ls -la'
+
+alias gppl="gpp &> LOG"
+alias gpwl="gpw &> LOG"
+alias gpw="g++ -Wall -Wextra -Werror"
+alias gpp="g++ -Wall -Wextra"
+alias gccw='gcc -Wall -Wextra -Werror -I -pedantic -ansi'
+alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
+alias mk='make re && make clean'
+alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
+alias cmk='cmake . && make clean && make'
+
+alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
+
+alias ne='emacs -nw'
+alias sne='sudo emacs -nw'
+
+alias apt= 'sudo apt'
+alias 'apt-get'='sudo apt-get'
+alias pacman='sudo pacman'
+alias zypper='sudo zypper'
+alias blih='blih -u burges_q'
+
+alias add='git add'
+alias pull='git pull'
+alias log="git log --pretty=format:'%h %aD | %s%d [%an]' --graph --date=short"
+alias push='git push'
+alias commit='git commit'
+alias gstatus='git status'
+
+alias pong='ping google.fr'
