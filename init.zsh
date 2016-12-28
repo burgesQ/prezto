@@ -54,29 +54,29 @@ function pmodload {
       continue
     else
       if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/modules/$pmodule/init.zsh" ]]; then
-        source "${ZDOTDIR:-$HOME}/.zprezto/modules/$pmodule/init.zsh"
+	source "${ZDOTDIR:-$HOME}/.zprezto/modules/$pmodule/init.zsh"
       fi
 
       if (( $? == 0 )); then
-        zstyle ":prezto:module:$pmodule" loaded 'yes'
+	zstyle ":prezto:module:$pmodule" loaded 'yes'
       else
-        # Remove the $fpath entry.
-        fpath[(r)${ZDOTDIR:-$HOME}/.zprezto/modules/${pmodule}/functions]=()
+	# Remove the $fpath entry.
+	fpath[(r)${ZDOTDIR:-$HOME}/.zprezto/modules/${pmodule}/functions]=()
 
-        function {
-          local pfunction
+	function {
+	  local pfunction
 
-          # Extended globbing is needed for listing autoloadable function
-          # directories.
-          setopt LOCAL_OPTIONS EXTENDED_GLOB
+	  # Extended globbing is needed for listing autoloadable function
+	  # directories.
+	  setopt LOCAL_OPTIONS EXTENDED_GLOB
 
-          # Unload Prezto functions.
-          for pfunction in ${ZDOTDIR:-$HOME}/.zprezto/modules/$pmodule/functions/$~pfunction_glob; do
-            unfunction "$pfunction"
-          done
-        }
+	  # Unload Prezto functions.
+	  for pfunction in ${ZDOTDIR:-$HOME}/.zprezto/modules/$pmodule/functions/$~pfunction_glob; do
+	    unfunction "$pfunction"
+	  done
+	}
 
-        zstyle ":prezto:module:$pmodule" loaded 'no'
+	zstyle ":prezto:module:$pmodule" loaded 'no'
       fi
     fi
   done
@@ -111,3 +111,5 @@ unset zfunction{s,}
 zstyle -a ':prezto:load' pmodule 'pmodules'
 pmodload "$pmodules[@]"
 unset pmodules
+
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(editor-info)

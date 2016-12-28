@@ -18,6 +18,8 @@ export PATH="$PATH:/home/$USER/.bin"
 export PATH="$PATH:/home/$USER/.clion/bin"
 export PATH="$PATH:/home/$USER/.intelJ/bin"
 
+export LD_LIBRARY_PATH=/usr/local/lib
+
 # BadHabits
 export EDITOR='emacs'
 export PAGER='less'
