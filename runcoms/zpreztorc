@@ -145,6 +145,10 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 #   'command' 'bg=black' \
 #   'function' 'bg=black'
 
+# Set syntax pattern styles.
+zstyle ':prezto:module:syntax-highlighting' pattern \
+   'rm -rf*' 'fg=white,bold,bg=red'
+
 #
 # Terminal
 #

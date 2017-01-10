@@ -12,6 +12,8 @@ fi
 
 # Customize to your needs...
 
+eval "$(thefuck --alias)"
+
 # Path
 export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 export PATH="$PATH:/home/$USER/.bin"
