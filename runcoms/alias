@@ -1,7 +1,9 @@
 # MOFO alias
 
 alias md='mkdir'
-alias cl='mr_clean'
+alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
+alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
+alias cl='find . \( -name "#*#" -o -name "*~" \) -delete ; echo mr_clean : all temporary file deleted'
 
 alias grep='grep --color'
 alias ls='ls --color'
@@ -31,10 +33,16 @@ alias zypper='sudo zypper'
 alias blih='blih -u burges_q'
 
 alias add='git add'
+alias addp='git add -p'
 alias pull='git pull'
 alias log="git log --pretty=format:'%h %aD | %s%d [%an]' --graph --date=short"
 alias push='git push'
 alias commit='git commit'
 alias gstatus='git status'
+alias gstash='git stash'
+alias gstashd='git stash drop'
+alias gstashp='git stash pop'
+alias gstashl='git stash list'
+alias gstashs='git stash show'
 
 alias pong='ping google.fr'
