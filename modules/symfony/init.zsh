@@ -15,7 +15,7 @@ _symfony_console () {
 }
 
 _symfony_get_command_list () {
-   `_symfony_console` --no-ansi | sed "1,/Available commands/d" | awk '/^  ?[a-z]+/ { print $1 }'
+   `_symfony_console` --no-ansi | sed "1,/Available commands/d" | awk '{ print $1 }' | grep ':'
 }
 
 _symfony () {
@@ -29,9 +29,24 @@ compdef _symfony sf
 
 #Alias
 alias sf='`_symfony_console`'
-alias sfcc='sf cache:clear'
+alias sfcl='sf cache:clear'
+alias sfai='sf assets:install'
 alias sfsr='sf server:run -vvv'
+alias sfsc='sf security:check'
 alias sfcw='sf cache:warmup'
-alias sfdc='sf debug:container'
-alias sfdr='sf debug:router'
+alias sfroute='sf debug:router'
+alias sfcontainer='sf debug:container'
 alias sfgb='sf generate:bundle'
+alias sfgc='sf generate:controller'
+alias sfdev='sf --env=dev'
+alias sfprod='sf --env=prod'
+#Doctrine alias
+alias sfge='sf doctrine:generate:entity'
+alias sfdc='sf doctrine:database:create'
+alias sfdd='sf doctrine:database:drop --force'
+alias sfsc='sf doctrine:schema:create'
+alias sfsu='sf doctrine:schema:update'
+alias sfdud='sf doctrine:schema:update --dump-sql'
+alias sfduf='sf doctrine:schema:update --force'
+#Need DoctrineFixturesBundle
+alias sffixtures='sf doctrine:fixtures:load'
