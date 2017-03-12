@@ -1,9 +1,9 @@
 # MOFO alias
 
 alias md='mkdir'
-alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
-alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
-alias cl='find . \( -name "#*#" -o -name "*~" \) -delete ; echo mr_clean : all temporary file deleted'
+#alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
+#alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
+alias cl='mr_clean'
 
 alias grep='grep --color'
 alias ls='ls --color'
