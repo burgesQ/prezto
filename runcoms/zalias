@@ -1,15 +1,15 @@
 # MOFO alias
 
 alias md='mkdir'
-#alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
-#alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
 alias cl='mr_clean'
-
 alias grep='grep --color'
 alias ls='ls --color'
 alias ll='ls -l'
 alias la='ls -la'
 alias l='ls -la'
+
+alias ne='emacs -nw'
+alias sne='sudo emacs -nw'
 
 alias gppl="gpp &> LOG"
 alias gpwl="gpw &> LOG"
@@ -23,9 +23,6 @@ alias cmk='cmake . && make clean && make'
 
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
-alias ne='emacs -nw'
-alias sne='sudo emacs -nw'
-
 alias apt= 'sudo apt'
 alias 'apt-get'='sudo apt-get'
 alias pacman='sudo pacman'
@@ -35,16 +32,20 @@ alias blih='blih -u quentin.burgess@epitech.eu'
 alias add='git add'
 alias addp='git add -p'
 alias pull='git pull'
-alias log="git log --pretty=format:'%h %aD | %s%d [%an]' --graph --date=short"
 alias push='git push'
 alias commit='git commit'
+
 alias checkout='git checkout'
 alias gstatus='git status'
-alias stashd='git stash drop'
-alias stashp='git stash pop'
-alias stashl='git stash list'
-alias stashs='git stash show'
-alias stashss='git stash save -u'
+alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
+
+alias branch='git branch'
+alias brancha='git branch --all'
+alias branchD='git branch -D'
+
+alias fetch='git fetch'
+alias fetcho='git fetch origin'
+alias fetcha='git fetch --all'
 
 alias stash='git stash'
 alias stashd='git stash drop'
@@ -53,7 +54,10 @@ alias stashl='git stash list'
 alias stashs='git stash show'
 alias stashss='git stash save -u'
 
-alias pong='ping google.fr'
-
 alias pstorm='phpstorm.sh'
+
 #alias IpDocker='docker inspect nginximg_db_1|grep IPAddress'
+#alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
+#alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
+
+alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
