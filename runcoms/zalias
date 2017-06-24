@@ -1,15 +1,21 @@
 # MOFO alias
 
+# bas habit alias
+
 alias md='mkdir'
 alias cl='mr_clean'
-alias grep='grep --color'
-alias ls='ls --color'
+alias grep='grep --color=auto'
 alias ll='ls -l'
 alias la='ls -la'
 alias l='ls -la'
+alias ls='ls --color=auto'
 
 alias ne='emacs -nw'
 alias sne='sudo emacs -nw'
+
+alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean : all temporary file deleted'
+
+# Compiled-language alias 
 
 alias gppl="gpp &> LOG"
 alias gpwl="gpw &> LOG"
@@ -17,47 +23,67 @@ alias gpw="g++ -Wall -Wextra -Werror"
 alias gpp="g++ -Wall -Wextra"
 alias gccw='gcc -Wall -Wextra -Werror -I -pedantic -ansi'
 alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
+
 alias mk='make re && make clean'
 alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
 alias cmk='cmake . && make clean && make'
 
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
+# package manager alias
+
 alias apt= 'sudo apt'
 alias 'apt-get'='sudo apt-get'
 alias pacman='sudo pacman'
 alias zypper='sudo zypper'
+
+# The fuck alias
+
+alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
+
+# Git alias
+
 alias blih='blih -u quentin.burgess@epitech.eu'
 
 alias add='git add'
-alias addp='git add -p'
+alias addP='git add -p'
 alias pull='git pull'
 alias push='git push'
 alias commit='git commit'
-
 alias checkout='git checkout'
-alias gstatus='git status'
+alias checkoutB='git checkout -b'
+
 alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 
 alias branch='git branch'
-alias brancha='git branch --all'
+alias branchA='git branch --all'
 alias branchD='git branch -D'
 
 alias fetch='git fetch'
-alias fetcho='git fetch origin'
-alias fetcha='git fetch --all'
+alias fetchO='git fetch origin'
+alias fetchA='git fetch --all'
 
 alias stash='git stash'
-alias stashd='git stash drop'
-alias stashp='git stash pop'
-alias stashl='git stash list'
-alias stashs='git stash show'
-alias stashss='git stash save -u'
+alias stashD='git stash drop'
+alias stashP='git stash pop'
+alias stashL='git stash list'
+alias stashS='git stash show'
+alias stashSU='git stash save -u'
+
+alias rebase='git rebase'
+alias rebaseC='rebase --continue'
+alias rebaseA='rebase --abort'
+
+alias gstatus='git status'
+alias greset='git reset'
+alias greseth='git reset --hard'
+alias gdiff='git diff'
+
+# Php / docker cmd
 
 alias pstorm='phpstorm.sh'
+alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
 
-#alias IpDocker='docker inspect nginximg_db_1|grep IPAddress'
-#alias MegaUpdate='php -dmemory_limit=-1 ../../composer.phar update || php app/console cache:clear --no-warmup'
-#alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
-
-alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
+function zsh_stat() {
+    fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
