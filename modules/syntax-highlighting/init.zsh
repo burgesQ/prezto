@@ -27,7 +27,6 @@ for syntax_highlighting_style in "${(k)syntax_highlighting_styles[@]}"; do
 done
 unset syntax_highlighting_style{s,}
 
-
 # Set pattern highlighting styles.
 typeset -A syntax_pattern_styles
 zstyle -a ':prezto:module:syntax-highlighting' pattern 'syntax_pattern_styles'
