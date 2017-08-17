@@ -3,11 +3,12 @@
 # bas habit alias
 
 alias md='mkdir'
-alias cl='mr_clean'
 alias grep='grep --color=auto'
+
 alias ll='ls -l'
-alias la='ls -la'
-alias l='ls -la'
+alias la='ll -a'
+alias l='la'
+alias lt='l -t'
 alias ls='ls --color=auto'
 
 alias ne='emacs -nw'
@@ -15,7 +16,9 @@ alias sne='sudo emacs -nw'
 
 alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean : all temporary file deleted'
 
-# Compiled-language alias 
+alias pong='ping google.com'
+
+# Compiled-language alias
 
 alias gppl="gpp &> LOG"
 alias gpwl="gpw &> LOG"
