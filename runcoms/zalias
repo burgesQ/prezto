@@ -11,8 +11,7 @@ alias l='la'
 alias lt='l -t'
 alias ls='ls --color=auto'
 
-alias ne='emacs -nw'
-alias sne='sudo emacs -nw'
+alias clear='clear; echo; echo; seq 1 $(tput cols) | sort -R | spark | lolcat; echo; echo'
 
 alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean : all temporary file deleted'
 
@@ -33,12 +32,15 @@ alias cmk='cmake . && make clean && make'
 
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
+# Alias for sudo
+alias sudo='sudo '
+
 # package manager alias
 
-alias apt= 'sudo apt'
-alias 'apt-get'='sudo apt-get'
-alias pacman='sudo pacman'
-alias zypper='sudo zypper'
+# alias apt= 'sudo apt'
+# alias 'apt-get'='sudo apt-get'
+# alias pacman='sudo pacman'
+# alias zypper='sudo zypper'
 
 # The fuck alias
 
@@ -55,6 +57,7 @@ alias push='git push'
 alias commit='git commit'
 alias checkout='git checkout'
 alias checkoutB='git checkout -b'
+alias pushD='git push --delete'
 
 alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 
@@ -82,10 +85,12 @@ alias greset='git reset'
 alias greseth='git reset --hard'
 alias gdiff='git diff'
 
-# Php / docker cmd
+# editor
 
 alias pstorm='phpstorm.sh'
-alias IpDocker='docker inspect $(docker ps -f name=db -q) | grep IPAddress ; docker inspect $(docker ps -f name=elastic -q) | grep IPAddress'
+alias clion='clion.sh'
+alias ne='emacs -nw'
+alias sne='sudo emacs -nw'
 
 function zsh_stat() {
     fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
