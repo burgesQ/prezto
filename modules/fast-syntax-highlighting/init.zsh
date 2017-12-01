@@ -1,1 +1,1 @@
-source ${ZDOTDIR:-$HOME}/modules/fast-syntax-highlighting/external/fast-syntax-highlighting.plugin.zsh
+source ${ZDOTDIR:-$HOME}/.zprezto/modules/fast-syntax-highlighting/external/fast-syntax-highlighting.plugin.zsh

@@ -1,1 +1,1 @@
-source ${ZDOTDIR:-$HOME}/modules/history-search-multi-word/external/history-search-multi-word.plugin.zsh
+source ${ZDOTDIR:-$HOME}/.zprezto/modules/history-search-multi-word/external/history-search-multi-word.plugin.zsh
