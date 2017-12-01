@@ -36,6 +36,7 @@ zstyle ':prezto:load' pmodule \
   'symfony' \
   'autosuggestions' \
   'prompt' \
+  'fast-syntax-highlighting' \
   'history-search-multi-word' \
   'syntax-highlighting' \
   'history-substring-search'
