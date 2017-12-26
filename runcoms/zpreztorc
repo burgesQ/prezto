@@ -217,7 +217,7 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 
 # Set syntax pattern styles.
 zstyle ':prezto:module:syntax-highlighting' pattern \
-   'rm *' 'fg=red,bold'
+   'rm -*' 'fg=red,bold'
 
 #
 # Terminal
