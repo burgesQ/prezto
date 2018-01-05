@@ -30,6 +30,7 @@ compdef _symfony sf
 #Alias
 alias sf='`_symfony_console`'
 alias sfcl='sf cache:clear'
+alias sfcle='sf cache:clear -e=prod'
 alias sfai='sf assets:install'
 alias sfsr='sf server:run -vvv'
 alias sfsc='sf security:check'
