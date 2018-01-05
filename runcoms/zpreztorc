@@ -37,6 +37,7 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'composer' \
   'symfony' \
+  'docker' \
   'autosuggestions' \
   'prompt' \
   'fast-syntax-highlighting' \
