@@ -38,7 +38,7 @@ alias sudo='sudo '
 # package manager alias
 
 # alias apt= 'sudo apt'
-# alias 'apt-get'='sudo apt-get'
+alias 'apt-get'='sudo apt-get'
 # alias pacman='sudo pacman'
 # alias zypper='sudo zypper'
 
@@ -47,6 +47,22 @@ alias sudo='sudo '
 alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
 # Git alias
+
+alias checkGit='for D in */
+do
+echo
+echo checking $D |lolcat
+echo
+if [ -d $D/.git ] ; then
+cd $D
+git status
+sleep 1
+cd ..
+else
+echo $D is not a git repo |lolcat
+fi
+echo
+done'
 
 alias blih='blih -u quentin.burgess@epitech.eu'
 
@@ -57,7 +73,7 @@ alias push='git push'
 alias commit='git commit'
 alias checkout='git checkout'
 alias checkoutB='git checkout -b'
-alias pushD='git push --delete'
+alias pushD='git push origin --delete'
 
 alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 
