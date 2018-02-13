@@ -30,3 +30,7 @@ bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
 
 set ZSH_AUTOSUGGEST_USE_ASYNC
+
+# if [ $? -ne 0 ]; then
+#     fuck
+# fi

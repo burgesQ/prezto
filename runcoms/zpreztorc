@@ -40,11 +40,9 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'autosuggestions' \
   'prompt' \
-  'fast-syntax-highlighting' \
   'history-search-multi-word' \
   'syntax-highlighting' \
   'history-substring-search'
-
 
 
 #

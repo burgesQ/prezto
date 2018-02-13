@@ -17,6 +17,14 @@ alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean 
 
 alias pong='ping google.com'
 
+alias dockerRM='docker swarm leave --force ; docker-compose down ; docker rmi -f `docker image ls -aq` ;  docker rm `docker ps -aq`; docker rolume rm `docker volume ls -q`'
+
+alias ducks='du -cksh * | sort -rh | head -10'
+
+function zsh_stat() {
+    fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
+
 # Compiled-language alias
 
 alias gppl="gpp &> LOG"
@@ -64,6 +72,19 @@ fi
 echo
 done'
 
+alias checkGitRec="
+find . -print0 | while IFS= read -r -d '' f
+do
+echo $f
+if [ -d $f/.git ] ; then
+cd $f
+pwd | lolcat
+git status
+sleep 1
+cd -
+fi
+done"
+
 alias blih='blih -u quentin.burgess@epitech.eu'
 
 alias add='git add'
@@ -108,8 +129,11 @@ alias clion='clion.sh'
 alias ne='emacs -nw'
 alias sne='sudo emacs -nw'
 
-alias ducks='du -cksh * | sort -rh | head -10'
+# docker
 
-function zsh_stat() {
-    fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
-}
+alias dc='docker-compose'
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcs='docker-compose stop'
+alias dce='docker-compose exec'
