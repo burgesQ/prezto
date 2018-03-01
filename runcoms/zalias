@@ -17,7 +17,7 @@ alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean 
 
 alias pong='ping google.com'
 
-alias dockerRM='docker swarm leave --force ; docker-compose down ; docker rmi -f `docker image ls -aq` ;  docker rm `docker ps -aq`; docker rolume rm `docker volume ls -q`'
+alias dockerRM='docker swarm leave --force ; docker-compose down ; docker rmi -f `docker image ls -aq` ;  docker rm `docker ps -aq`; docker volume rm `docker volume ls -q`'
 
 alias ducks='du -cksh * | sort -rh | head -10'
 
@@ -36,7 +36,7 @@ alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
 
 alias mk='make re && make clean'
 alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
-alias cmk='cmake . && make clean && make'
+alias cmk='cmake . && make clean && make -j4'
 
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
