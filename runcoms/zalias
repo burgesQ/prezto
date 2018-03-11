@@ -122,6 +122,8 @@ alias greset='git reset'
 alias greseth='git reset --hard'
 alias gdiff='git diff'
 
+alias tag='git tag'
+
 # editor
 
 alias pstorm='phpstorm.sh'
