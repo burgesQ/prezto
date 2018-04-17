@@ -1,8 +1,8 @@
-Symfony2
+Symfony3
 =============
 
 Defines [Symfony][1] basic command aliases and enables command completion.
-This module ported from the symfony2 plugin of oh-my-zsh.
+This module is ported from the symfony2 plugin of oh-my-zsh.
 Refs: https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/symfony2/symfony2.plugin.zsh
 
 Aliases

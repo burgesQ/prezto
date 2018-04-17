@@ -38,16 +38,19 @@ zstyle ':prezto:load' pmodule \
   'composer' \
   'symfony' \
   'docker' \
-  'autosuggestions' \
   'prompt' \
   'history-search-multi-word' \
   'syntax-highlighting' \
-  'history-substring-search'
+  'history-substring-search' \
+  'autosuggestions'
 
 
 #
 # Autosuggestions
 #
+
+# Set the highlighting
+zstyle ':prezto:module:autosuggestions' color 'yes'
 
 # Set the querys found color.
 zstyle ':prezto:module:autosuggestions:color' found ''
@@ -78,7 +81,10 @@ zstyle ':prezto:module:editor' ps-context 'yes'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
+
+# Disable git alias
+zstyle ':prezto:module:git:alias' skip 'yes'
 
 #
 # GNU Utility
@@ -155,7 +161,7 @@ zstyle ':prezto:module:prompt' theme 'pure'
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
 # for longer or 'full' (with '~' expansion) for even longer prompt display.
-zstyle ':prezto:module:prompt' pwd-length 'long'
+zstyle ':prezto:module:prompt' pwd-length 'full'
 
 # Set the prompt to display the return code along with an indicator for non-zero
 # return codes. This is not supported by all prompts.
@@ -260,4 +266,4 @@ zstyle ':prezto:module:syntax-highlighting' pattern \
 # Enabled safe options. This aliases cp, ln, mv and rm so that they prompt
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
-# zstyle ':prezto:module:utility' safe-ops 'yes'
+zstyle ':prezto:module:utility' safe-ops 'yes'
