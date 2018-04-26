@@ -17,8 +17,6 @@ alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean 
 
 alias pong='ping google.com'
 
-alias dockerRM='docker swarm leave --force ; docker-compose down ; docker rmi -f `docker image ls -aq` ;  docker rm `docker ps -aq`; docker volume rm `docker volume ls -q`'
-
 alias ducks='du -cksh * | sort -rh | head -10'
 
 function zsh_stat() {
@@ -120,7 +118,7 @@ alias rebaseA='rebase --abort'
 
 alias gstatus='git status'
 alias greset='git reset'
-alias greseth='git reset --hard'
+alias gresetH='git reset --hard'
 alias gdiff='git diff'
 
 alias tag='git tag'
@@ -140,3 +138,4 @@ alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dcs='docker-compose stop'
 alias dce='docker-compose exec'
+alias dockerRM='docker swarm leave --force ; docker-compose down ; docker rmi -f `docker image ls -aq` ;  docker rm `docker ps -aq`; docker volume rm `docker volume ls -q`'
