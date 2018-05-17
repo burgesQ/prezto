@@ -274,3 +274,5 @@ zstyle ':prezto:module:utility' safe-ops 'yes'
 
 # Disable extended globbing syntax.
 unsetopt EXTENDED_GLOB
+# Disable cd into a path storred in a vars
+unsetopt CDABLE_VARS
