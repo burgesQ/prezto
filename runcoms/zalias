@@ -3,23 +3,21 @@
 # bas habit alias
 
 alias md='mkdir'
+
 alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 
 alias ll='ls -l'
 alias la='ll -a'
 alias l='la'
 alias lt='l -t'
-alias ls='ls --color=auto'
+alias l.='ls -d .*'
+
+#alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean : all temporary file deleted'
 
 alias pong='ping google.com'
-
-alias dockerRM='
-echo remove docker containers ; docker rm `docker ps -aq` 2> /dev/null ;
-echo remove docker images ; docker rmi -f `docker image ls -aq` 2> /dev/null ;
-echo remove docker volumes ; docker volume rm `docker volume ls -q` 2> /dev/null
-'
 
 alias ducks='du -cksh * | sort -rh | head -10'
 
@@ -123,7 +121,7 @@ alias rebaseA='rebase --abort'
 alias gstatus='git status'
 alias gs='git status'
 alias greset='git reset'
-alias greseth='git reset --hard'
+alias gresetH='git reset --hard'
 alias gdiff='git diff'
 
 alias tag='git tag'
@@ -143,3 +141,9 @@ alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dcs='docker-compose stop'
 alias dce='docker-compose exec'
+alias dockerRM='
+docker-compose down 2> /dev/null ; echo "Container stopped" ;
+docker rm `docker ps -aq` 2> /dev/null ; echo "Container deleted" ;
+docker volume rm `docker volume ls -q` 2> /dev/null ; echo "Volumes deleted" ;
+docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted"
+'
