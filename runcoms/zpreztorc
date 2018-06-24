@@ -155,7 +155,7 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 # RPROMPT='[$?]'
 PURE_PROMPT_SYMBOL="%* %0(?..[%?] )❯"
-PURE_CMD_MAX_EXEC_TIME=0
+PURE_CMD_MAX_EXEC_TIME=10
 zstyle ':prezto:module:prompt' theme 'pure'
 
 # Set the working directory prompt display length.
