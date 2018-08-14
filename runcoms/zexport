@@ -1,6 +1,7 @@
 # Path
 export PATH="$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 export PATH="$PATH:/home/$USER/.bin"
+export PATH="$PATH:/usr/games"
 
 export LD_LIBRARY_PATH=/usr/local/lib
 

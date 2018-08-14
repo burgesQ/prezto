@@ -125,13 +125,16 @@ alias gresetH='git reset --hard'
 alias gdiff='git diff'
 
 alias tag='git tag'
+alias tagL='git tag -n1'
 
 # editor
 
 alias pstorm='phpstorm.sh'
 alias clion='clion.sh'
-alias ne='emacs -nw'
-alias sne='sudo emacs -nw'
+# alias ne='emacs -nw'
+# alias sne='sudo emacs -nw'
+alias ne='emacsclient.emacs24 -nw'
+alias sne='sudo emacsclient.emacs24 -nw'
 
 # docker
 
