@@ -132,7 +132,7 @@ zstyle ':prezto:module:history-substring-search:color' not-found ''
 zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
-# OS X
+# macOS
 #
 
 # Set the keyword used by `mand` to open man pages in Dash.app
@@ -168,13 +168,6 @@ zstyle ':prezto:module:prompt' pwd-length 'full'
 zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
-# Ruby
-#
-
-# Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
-#
 # Python
 #
 
@@ -183,6 +176,13 @@ zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
 # zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
