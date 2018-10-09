@@ -1,4 +1,6 @@
-# MOFO alias
+ # -*- mode: sh-mode; -*-
+#
+# zsh MOFO alias
 
 # bas habit alias
 
@@ -37,6 +39,10 @@ alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
 alias mk='make re && make clean'
 alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
 alias cmk='cmake . && make clean && make -j4'
+
+# docker cmake
+alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "MAKE_FLAG=-k -j4 rest" '
+alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
 
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
@@ -131,10 +137,8 @@ alias tagL='git tag -n1'
 
 alias pstorm='phpstorm.sh'
 alias clion='clion.sh'
-# alias ne='emacs -nw'
-# alias sne='sudo emacs -nw'
-alias ne='emacsclient25 -nw'
-alias sne='sudo emacsclient25 -nw'
+alias ne="emacsclient -a ''"
+alias sne="sudo emacsclient -a ''"
 
 # docker
 

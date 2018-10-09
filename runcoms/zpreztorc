@@ -1,3 +1,4 @@
+#  -*- mode: sh; -*-
 #
 # Sets Prezto options.
 #
@@ -267,12 +268,3 @@ zstyle ':prezto:module:syntax-highlighting' pattern \
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 zstyle ':prezto:module:utility' safe-ops 'yes'
-
-#
-# Directory
-#
-
-# Disable extended globbing syntax.
-unsetopt EXTENDED_GLOB
-# Disable cd into a path storred in a vars
-unsetopt CDABLE_VARS

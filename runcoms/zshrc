@@ -1,3 +1,4 @@
+# -*- mode: sh-mode; -*-
 #
 # Executes commands at the start of an interactive session.
 #
@@ -12,12 +13,6 @@ fi
 
 # Customize to your needs...
 
-# the fuck
-eval "$(thefuck --alias)"
-
-# Export
-source $HOME/.zexport
-
 # Alias
 source $HOME/.zalias
 
@@ -28,9 +23,3 @@ bindkey  '^[[1;5D'   emacs-backward-word
 bindkey  '^[[1;5C'   emacs-forward-word
 bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
-
-set ZSH_AUTOSUGGEST_USE_ASYNC
-
-# if [ $? -ne 0 ]; then
-#     fuck
-# fi
