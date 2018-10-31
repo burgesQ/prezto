@@ -1,4 +1,4 @@
- # -*- mode: sh-mode; -*-
+# -*- mode: sh; -*-
 #
 # zsh MOFO alias
 
@@ -15,12 +15,18 @@ alias l='la'
 alias lt='l -t'
 alias l.='ls -d .*'
 
-#alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-
-alias cl='find . \( -name "#*#" -o -name "*~" \) -print -delete ; echo mr_clean : all temporary file deleted'
-
 alias pong='ping google.com'
 
+# sudo support alias
+alias sudo='sudo '
+
+# rehl
+# alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+# clean emacs file
+alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ; echo mr_clean : all temporary file deleted'
+
+# sort file by size
 alias ducks='du -cksh * | sort -rh | head -10'
 
 function zsh_stat() {
@@ -29,36 +35,22 @@ function zsh_stat() {
 
 # Compiled-language alias
 
-alias gppl="gpp &> LOG"
-alias gpwl="gpw &> LOG"
-alias gpw="g++ -Wall -Wextra -Werror"
-alias gpp="g++ -Wall -Wextra"
-alias gccw='gcc -Wall -Wextra -Werror -I -pedantic -ansi'
-alias ggw='gcc -Wall -Wextra -Werror -std=gnu99'
-
 alias mk='make re && make clean'
 alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
 alias cmk='cmake . && make clean && make -j4'
 
-# docker cmake
-alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "MAKE_FLAG=-k -j4 rest" '
+# docker cmake sems
+alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "MAKE_FLAG=-k -j4" '
 alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
 
+# valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
-# Alias for sudo
-alias sudo='sudo '
-
 # package manager alias
-
-# alias apt= 'sudo apt'
 alias 'apt-get'='sudo apt-get'
-# alias pacman='sudo pacman'
-# alias zypper='sudo zypper'
 
 # The fuck alias
-
-alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
+# alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
 # Git alias
 
@@ -91,8 +83,6 @@ cd -
 fi
 done"
 
-alias blih='blih -u quentin.burgess@epitech.eu'
-
 alias add='git add'
 alias addP='git add -p'
 alias pull='git pull'
@@ -102,7 +92,7 @@ alias checkout='git checkout'
 alias checkoutB='git checkout -b'
 alias pushD='git push origin --delete'
 
-alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
+alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(white)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 alias llog="git log --graph --decorate --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 
 alias branch='git branch'
@@ -148,9 +138,11 @@ alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dcs='docker-compose stop'
 alias dce='docker-compose exec'
+
 alias dockerRM='
-docker-compose down 2> /dev/null ; echo "Container stopped" ;
-docker rm `docker ps -aq` 2> /dev/null ; echo "Container deleted" ;
-docker volume rm `docker volume ls -q` 2> /dev/null ; echo "Volumes deleted" ;
-docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted"
+(docker-compose down ; docker kill `docker ps -aq`) 2> /dev/null ;  echo "Containers stopped" ;
+docker rm -v `docker ps -aq` 2> /dev/null ; echo "Containers & their associated volumes deleted" ;
+docker volume rm `docker volume ls -f "dangling=true" -q` 2> /dev/null ; echo "Extra volumes deleted" ;
+docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 '
+alias extraDockerRM='docker system prune --volumes ; echo "Her is something !"'
