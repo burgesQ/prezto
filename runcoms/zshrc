@@ -23,3 +23,8 @@ bindkey  '^[[1;5D'   emacs-backward-word
 bindkey  '^[[1;5C'   emacs-forward-word
 bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
+
+setopt prompt_sp
+setopt prompt_cr
+
+# setopt prompt_opts

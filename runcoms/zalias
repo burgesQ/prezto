@@ -6,7 +6,7 @@
 
 alias md='mkdir'
 
-alias grep='grep --color=auto'
+alias grep='grep --color=auto -HIn' # color, line, no binary
 alias ls='ls --color=auto'
 
 alias ll='ls -l'
@@ -35,12 +35,13 @@ function zsh_stat() {
 
 # Compiled-language alias
 
-alias mk='make re && make clean'
+alias mk='make re -j4'
+alias mke='make re && '
 alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
-alias cmk='cmake . && make clean && make -j4'
+alias cmk='cmake ../ && make -j4'
 
 # docker cmake sems
-alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "MAKE_FLAG=-k -j4" '
+alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "CC=/usr/bin/clang" -e "MAKE_FLAG=-k -j4" '
 alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
 
 # valgrind shortcut
