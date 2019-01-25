@@ -11,8 +11,12 @@ Installation
 Prezto will work with any recent release of Zsh, but the minimum required
 version is 4.3.17.
 
-  1. Launch Zsh:
+User-local configuration files have the same name as their global counterparts
+but are prefixed with a dot (hidden). Zsh looks for these files in the path
+stored in the `$ZDOTDIR` environment variable. However, if said variable is
+not defined, Zsh will use the user's home directory.
 
+  1. Launch Zsh:
         zsh
 
   2. Clone the repository:
