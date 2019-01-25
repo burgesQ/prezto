@@ -17,6 +17,8 @@ alias l.='ls -d .*'
 
 alias pong='ping google.com'
 
+#alias python="python3"
+
 # sudo support alias
 alias sudo='sudo '
 
@@ -147,3 +149,5 @@ docker volume rm `docker volume ls -f "dangling=true" -q` 2> /dev/null ; echo "E
 docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 '
 alias extraDockerRM='docker system prune --volumes ; echo "Her is something !"'
+
+alias ports=" netstat -lntup"
