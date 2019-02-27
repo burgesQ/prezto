@@ -28,3 +28,6 @@ setopt prompt_sp
 setopt prompt_cr
 
 # setopt prompt_opts
+
+# don't save failed cmd to history
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
