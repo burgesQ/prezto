@@ -24,6 +24,7 @@ bindkey  '^[[1;5C'   emacs-forward-word
 bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
 
+# old prompt behavior
 setopt prompt_sp
 setopt prompt_cr
 
@@ -31,3 +32,6 @@ setopt prompt_cr
 
 # don't save failed cmd to history
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+
+autoload -U compinit
+compinit -C

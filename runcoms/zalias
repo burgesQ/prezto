@@ -43,8 +43,8 @@ alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Ma
 alias cmk='cmake ../ && make -j4'
 
 # docker cmake sems
-alias dmakec='docker run -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "CC=/usr/bin/clang" -e "MAKE_FLAG=-k -j4" '
-alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
+alias dmakec='docker run  -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "CC=/usr/bin/clang" -e "MAKE_FLAG=-k -j4" '
+alias dmakeg='docker run  -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
 
 # valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
