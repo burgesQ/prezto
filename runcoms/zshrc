@@ -33,5 +33,6 @@ setopt prompt_cr
 # don't save failed cmd to history
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
+# fix completion not working
 autoload -U compinit
 compinit -C
