@@ -25,14 +25,111 @@ bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
 
 # old prompt behavior
-setopt prompt_sp
-setopt prompt_cr
-
+# setopt prompt_sp
+# setopt prompt_cr
 # setopt prompt_opts
 
 # don't save failed cmd to history
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # fix completion not working
-autoload -U compinit
-compinit -C
+# https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
+
+#
+# prompt stuffs
+#
+
+# pure cfg
+PURE_PROMPT_SYMBOL="%* %0(?..[%?] )❯"
+PURE_CMD_MAX_EXEC_TIME=10
+
+# spaceship prompt cfg
+SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_CHAR_SYMBOL="❯"
+SPACESHIP_CHAR_SYMBOL_ROOT="#❯"
+SPACESHIP_CHAR_SYMBOL_SECONDARY="?"
+SPACESHIP_CHAR_COLOR_SUCCESS="magenta"
+
+# spaceship time cfg
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_PREFIX=""
+SPACESHIP_TIME_COLOR="magenta"
+
+# spaceship user/host/dir cfg
+SPACESHIP_USER_SHOW="yes"
+SPACESHIP_USER_COLOR="243"
+SPACESHIP_USER_SUFFIX=""
+
+SPACESHIP_HOST_SHOW="yes"
+SPACESHIP_HOST_PREFIX="@"
+SPACESHIP_HOST_SUFFIX=""
+
+SPACESHIP_DIR_SHOW=true
+SPACESHIP_DIR_PREFIX="➜ "
+SPACESHIP_DIR_TRUNC=0
+# SPACESHIP_DIR_TRUNC_PREFIX=".../"
+SPACESHIP_DIR_TRUNC_REPO=false
+
+# spaceship git cfg
+SPACESHIP_GIT_PREFIX=""
+SPACESHIP_GIT_STATUS_PREFIX=" "
+SPACESHIP_GIT_STATUS_SUFFIX=" "
+SPACESHIP_GIT_BRANCH_COLOR="243"
+
+# spaceship battery cfg
+SPACESHIP_BATTERY_SHOW="true"
+SPACESHIP_BATTERY_THRESHOLD="99"
+SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡ "
+SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣ "
+
+# spaceship status code cfg
+SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_EXIT_CODE_SYMBOL="✘ "
+
+# spaceship exec time cfg
+SPACESHIP_EXEC_TIME_PREFIX=""
+
+SPACESHIP_PROMPT_ORDER=(
+  battery       # Battery level and status
+  dir           # Current directory section
+  git           # git status
+  package       # Package version
+
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  xcode         # Xcode section
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  julia         # Julia section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  haskell       # Haskell Stack section
+  kubecontext   # Kubectl context section
+
+  exec_time     # Execution time
+  line_sep      # Line break
+  time          # Current time
+
+  exit_code     # Last cmd exit code
+  char          # Prompt character
+  jobs          # Background jobs indicator
+)
+
+SPACESHIP_RPROMPT_ORDER=(
+    user          # Username section
+    host          # Hostname section
+)

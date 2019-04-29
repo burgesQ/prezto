@@ -96,7 +96,10 @@ alias checkoutB='git checkout -b'
 alias pushD='git push origin --delete'
 
 alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(white)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
-alias llog="git log --graph --decorate --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
+alias logs="git log --graph --decorate --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
+
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glogs="glog --stat"
 
 alias branch='git branch'
 alias branchA='git branch --all'
