@@ -18,7 +18,7 @@ alias l.='ls -d .*'
 # alias cp='cp -gR'
 # alias mv='cp -g'
 
-alias pong='ping google.com'
+alias pong='ping -c 3 google.com'
 
 #alias python="python3"
 
