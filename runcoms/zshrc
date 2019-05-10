@@ -87,7 +87,7 @@ SPACESHIP_GIT_BRANCH_COLOR="243"
 
 # spaceship battery cfg
 SPACESHIP_BATTERY_SHOW="true"
-SPACESHIP_BATTERY_THRESHOLD="99"
+SPACESHIP_BATTERY_THRESHOLD="80"
 SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡ "
 SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣ "
 
@@ -99,7 +99,7 @@ SPACESHIP_EXIT_CODE_SYMBOL="✘ "
 SPACESHIP_EXEC_TIME_PREFIX=""
 
 SPACESHIP_PROMPT_ORDER=(
-  battery       # Battery level and status
+#   battery       # Battery level and status
   dir           # Current directory section
   git           # git status
   package       # Package version
@@ -144,4 +144,4 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
-ssh-add /home/master/.ssh/id_rsa_frafos /home/master/.ssh/id_rsa &> /dev/null
+# ssh-add /home/master/.ssh/id_rsa_frafos /home/master/.ssh/id_rsa &> /dev/null
