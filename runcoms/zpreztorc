@@ -157,11 +157,11 @@ zstyle ':prezto:module:prompt' theme 'spaceship'
 # set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
 # for longer or 'full' (with '~' expansion) for even longer prompt display.
-# zstyle ':prezto:module:prompt' pwd-length 'short'
+zstyle ':prezto:module:prompt' pwd-length 'short'
 
 # Set the prompt to display the return code along with an indicator for non-zero
 # return codes. This is not supported by all prompts.
-# zstyle ':prezto:module:prompt' show-return-val 'yes'
+zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
 # Python
@@ -214,14 +214,14 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 # Set syntax highlighting styles.
 zstyle ':prezto:module:syntax-highlighting' styles \
-#   'root' 'bg=red'
-#   'builtin' 'bg=black' \
-#   'command' 'bg=black' \
-#   'function' 'bg=black'
+   # 'builtin' 'fg=withe' \
+   # 'command' 'fg=withe' \
+   # 'function' 'fg=withe' \
+   # 'root' 'fg=red'
 
 # Set syntax pattern styles.
 zstyle ':prezto:module:syntax-highlighting' pattern \
-   'rm -*' 'fg=red,bold'
+   'rm -r' 'fg=red,bold'
 
 #
 # Terminal

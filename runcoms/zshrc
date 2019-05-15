@@ -36,9 +36,9 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
+  compinit;
 else
-	compinit -C;
+  compinit -C;
 fi;
 
 # pretty cd [tab] stuffs
@@ -81,8 +81,8 @@ SPACESHIP_DIR_TRUNC_REPO=false
 
 # spaceship git cfg
 SPACESHIP_GIT_PREFIX=""
-SPACESHIP_GIT_STATUS_PREFIX=" "
-SPACESHIP_GIT_STATUS_SUFFIX=" "
+SPACESHIP_GIT_STATUS_PREFIX=" ["
+SPACESHIP_GIT_STATUS_SUFFIX="]"
 SPACESHIP_GIT_BRANCH_COLOR="243"
 
 # spaceship battery cfg
@@ -96,7 +96,7 @@ SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_EXIT_CODE_SYMBOL="✘ "
 
 # spaceship exec time cfg
-SPACESHIP_EXEC_TIME_PREFIX=""
+SPACESHIP_EXEC_TIME_PREFIX="took "
 
 SPACESHIP_PROMPT_ORDER=(
 #   battery       # Battery level and status
@@ -144,4 +144,8 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
-# ssh-add /home/master/.ssh/id_rsa_frafos /home/master/.ssh/id_rsa &> /dev/null
+
+# enable completion on manual page ?
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
