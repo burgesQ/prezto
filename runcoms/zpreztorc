@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'completion' \
   'docker' \
-  'contrib-prompt' \
   'prompt' \
   'history-search-multi-word' \
   'syntax-highlighting' \
