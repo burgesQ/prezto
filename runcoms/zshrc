@@ -144,8 +144,15 @@ SPACESHIP_RPROMPT_ORDER=(
     host          # Hostname section
 )
 
-# gpg stuffs / yubikey stuff
-export KEYID="0x24EAA460E535BEE5"
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
+<<<<<<< HEAD
+# # gpg stuffs / yubikey stuff
+# export KEYID="0x24EAA460E535BEE5"
+# export GPG_TTY="$(tty)"
+# export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+
+# gpg-connect-agent updatestartuptty /bye > /dev/null
+
+# enable completion on manual page ?
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
