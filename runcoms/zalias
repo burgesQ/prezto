@@ -147,16 +147,22 @@ alias sne="sudo emacsclient -a ''"
 
 alias dk='docker'
 alias dkc='docker-compose'
+
 alias dkcb='docker-compose build'
 alias dkcu='docker-compose up'
 alias dkcd='docker-compose down'
 alias dkcs='docker-compose stop'
 alias dkce='docker-compose exec'
 
-alias dockerRM='
+alias dkr='docker run'
+alias dke='docker exec'
+alias dki='docker image'
+alias dkb='docker build'
+
+alias dkRm='
 (docker-compose down ; docker kill `docker ps -aq`) 2> /dev/null ;  echo "Containers stopped" ;
 docker rm -v `docker ps -aq` 2> /dev/null ; echo "Containers & their associated volumes deleted" ;
 docker volume rm `docker volume ls -f "dangling=true" -q` 2> /dev/null ; echo "Extra volumes deleted" ;
 docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 '
-alias extraDockerRM='docker system prune --volumes ; echo "Her is something !"'
+alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
