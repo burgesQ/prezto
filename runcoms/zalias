@@ -15,15 +15,12 @@ alias l='la'
 alias lt='l -t'
 alias l.='ls -d .*'
 
-# alias cp='cp -gR'
-# alias mv='cp -g'
-
 alias pong='ping -c 3 google.com'
-
-#alias python="python3"
 
 # sudo support alias
 alias sudo='sudo '
+alias please='sudo '
+alias pls=please
 
 # rehl
 # alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
@@ -45,12 +42,20 @@ function zsh_stat() {
 
 alias mk='make re -j4'
 alias mke='make re && '
-alias ccm='make clean && rm -rf CMakeCache.txt cmake_install.cmake CMakeFiles Makefile'
 alias cmk='cmake ../ && make -j4'
 
+alias dmake='docker run -it --rm -v `pwd`:/src:delegated'
+
 # docker cmake sems
-alias dmakec='docker run  -it --rm -v `pwd`:/src:delegated -e "CXX=/usr/bin/clang++" -e "CC=/usr/bin/clang" -e "MAKE_FLAG=-k -j4" '
-alias dmakeg='docker run  -it --rm -v `pwd`:/src:delegated -e "MAKE_FLAG=-k -j4" '
+alias dmakec='dmake \
+  -e "CXX=/usr/bin/clang++" \
+  -e "CC=/usr/bin/clang" \
+  -e "MAKE_FLAGS=-k -j4" \
+  -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
+
+alias dmakeg='dmake \
+  -e "MAKE_FLAGS=-k -j4" \
+  -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
 # valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
@@ -145,19 +150,22 @@ alias sne="sudo emacsclient -a ''"
 
 # docker
 
-alias dk='docker'
-alias dkc='docker-compose'
+alias dk=docker
+alias dkc=docker-compose
 
-alias dkcb='docker-compose build'
-alias dkcu='docker-compose up'
-alias dkcd='docker-compose down'
-alias dkcs='docker-compose stop'
-alias dkce='docker-compose exec'
+alias dkcb='dkc build'
+alias dkcu='dkc up'
+alias dkcd='dkc down'
+alias dkcs='dkc stop'
+alias dkce='dkc exec'
 
-alias dkr='docker run'
-alias dke='docker exec'
-alias dki='docker image'
-alias dkb='docker build'
+alias dkr='dk run'
+alias dke='dk exec'
+alias dkb='dk build'
+
+alias dki='dk image'
+alias dkv='dk volume'
+alias dkn='dk network'
 
 alias dkRm='
 (docker-compose down ; docker kill `docker ps -aq`) 2> /dev/null ;  echo "Containers stopped" ;
@@ -166,3 +174,9 @@ docker volume rm `docker volume ls -f "dangling=true" -q` 2> /dev/null ; echo "E
 docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 '
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
+
+alias lzdk=lazydocker
+
+# weather alias
+alias weatherP='curl http://v2.wttr.in/Paris'
+alias weatherB='curl http://v2.wttr.in/Berlin'

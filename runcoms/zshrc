@@ -41,6 +41,11 @@ else
   compinit -C;
 fi;
 
+# enable completion on manual page ?
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+
 # pretty cd [tab] stuffs
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
@@ -84,10 +89,11 @@ SPACESHIP_GIT_PREFIX=""
 SPACESHIP_GIT_STATUS_PREFIX=" ["
 SPACESHIP_GIT_STATUS_SUFFIX="]"
 SPACESHIP_GIT_BRANCH_COLOR="243"
+SPACESHIP_GIT_STATUS_DIVERGED="!⇣⇡"
 
 # spaceship battery cfg
 SPACESHIP_BATTERY_SHOW="true"
-SPACESHIP_BATTERY_THRESHOLD="80"
+SPACESHIP_BATTERY_THRESHOLD="100"
 SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡ "
 SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣ "
 
@@ -99,7 +105,7 @@ SPACESHIP_EXIT_CODE_SYMBOL="✘ "
 SPACESHIP_EXEC_TIME_PREFIX="took "
 
 SPACESHIP_PROMPT_ORDER=(
-#   battery       # Battery level and status
+#  battery       # Battery level and status
   dir           # Current directory section
   git           # git status
   package       # Package version
@@ -137,15 +143,8 @@ SPACESHIP_RPROMPT_ORDER=(
     host          # Hostname section
 )
 
-
 # gpg stuffs / yubikey stuff
 export KEYID="0x24EAA460E535BEE5"
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-
 gpg-connect-agent updatestartuptty /bye > /dev/null
-
-# enable completion on manual page ?
-zstyle ':completion:*:manuals'    separate-sections true
-zstyle ':completion:*:manuals.*'  insert-sections   true
-zstyle ':completion:*:man:*'      menu yes select
