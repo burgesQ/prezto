@@ -38,6 +38,9 @@ function zsh_stat() {
     fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
+# generate self signed certificate
+getMeThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
+
 # Compiled-language alias
 
 alias mk='make re -j4'
@@ -126,6 +129,7 @@ alias stashD='git stash drop'
 alias stashP='git stash pop'
 alias stashL='git stash list'
 alias stashS='git stash show'
+alias stashSD='git stash show -p'
 alias stashSU='git stash save -u'
 
 alias rebase='git rebase'
