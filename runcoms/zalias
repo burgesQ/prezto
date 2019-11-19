@@ -145,6 +145,11 @@ alias gdiff='git diff'
 alias tag='git tag'
 alias tagL='git tag -n1'
 
+alias chp='git cherry-pick'
+alias chpMC='chp -m 1'
+alias chpA='chp --abort'
+alias chpC='chp --continue'
+
 # editor
 
 alias pstorm='phpstorm.sh'
