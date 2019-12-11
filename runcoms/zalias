@@ -116,6 +116,8 @@ alias logs="git log --graph --decorate --all --date-order --date=format:'%Y-%m-%
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glogs="glog --stat"
 
+alias tagPL="git log --no-walk --tags --date=format:'%Y-%m-%d %H:%M:%S' --pretty='%C(cyan)%h%Creset %ad (%C(Green)%cr%C(reset))%x09 %d %s' --decorate=full"
+
 alias branch='git branch'
 alias branchA='git branch --all'
 alias branchD='git branch -D'
@@ -149,6 +151,9 @@ alias chp='git cherry-pick'
 alias chpMC='chp -m 1'
 alias chpA='chp --abort'
 alias chpC='chp --continue'
+
+alias merge='git merge'
+alias mergeA='git merge --abort'
 
 # editor
 
