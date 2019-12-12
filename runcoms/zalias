@@ -10,9 +10,9 @@ alias grep='grep --color=auto -HIn' # color, line, no binary
 alias ls='ls --color=auto'
 
 alias ll='ls -l'
-alias la='ll -a'
-alias l='la'
-alias lt='l -t'
+alias la='ls -la'
+alias l='ls -la'
+alias lt='ls -lat'
 alias l.='ls -d .*'
 
 alias pong='ping -c 3 google.com'
@@ -20,7 +20,7 @@ alias pong='ping -c 3 google.com'
 # sudo support alias
 alias sudo='sudo '
 alias please='sudo '
-alias pls=please
+alias pls='sudo '
 
 # rehl
 # alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
@@ -39,7 +39,7 @@ function zsh_stat() {
 }
 
 # generate self signed certificate
-getMeThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
+genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
 
 # Compiled-language alias
 
@@ -47,16 +47,14 @@ alias mk='make re -j4'
 alias mke='make re && '
 alias cmk='cmake ../ && make -j4'
 
-alias dmake='docker run -it --rm -v `pwd`:/src:delegated'
-
 # docker cmake sems
-alias dmakec='dmake \
+alias dmakec='docker run -it --rm -v `pwd`:/src/delegated \
   -e "CXX=/usr/bin/clang++" \
   -e "CC=/usr/bin/clang" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
-alias dmakeg='dmake \
+alias dmakeg='docker run -it --rm -v `pwd`:/src/delegated \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
@@ -135,8 +133,8 @@ alias stashSD='git stash show -p'
 alias stashSU='git stash save -u'
 
 alias rebase='git rebase'
-alias rebaseC='rebase --continue'
-alias rebaseA='rebase --abort'
+alias rebaseC='git rebase --continue'
+alias rebaseA='git rebase --abort'
 
 alias gstatus='git status'
 alias gs='git status'
@@ -148,17 +146,15 @@ alias tag='git tag'
 alias tagL='git tag -n1'
 
 alias chp='git cherry-pick'
-alias chpMC='chp -m 1'
-alias chpA='chp --abort'
-alias chpC='chp --continue'
+alias chpMC='git cherry-pick -m 1'
+alias chpA='git cherry-pick --abort'
+alias chpC='git cherry-pick --continue'
 
 alias merge='git merge'
 alias mergeA='git merge --abort'
 
 # editor
 
-alias pstorm='phpstorm.sh'
-alias clion='clion.sh'
 alias ne="emacsclient -a ''"
 alias sne="sudo emacsclient -a ''"
 
@@ -167,19 +163,19 @@ alias sne="sudo emacsclient -a ''"
 alias dk=docker
 alias dkc=docker-compose
 
-alias dkcb='dkc build'
-alias dkcu='dkc up'
-alias dkcd='dkc down'
-alias dkcs='dkc stop'
-alias dkce='dkc exec'
+alias dkcb='docker-compose build'
+alias dkcu='docker-compose up'
+alias dkcd='docker-compose down'
+alias dkcs='docker-compose stop'
+alias dkce='docker-compose exec'
 
-alias dkr='dk run'
-alias dke='dk exec'
-alias dkb='dk build'
+alias dkr='docker run'
+alias dke='docker exec'
+alias dkb='docker build'
 
-alias dki='dk image'
-alias dkv='dk volume'
-alias dkn='dk network'
+alias dki='docker image'
+alias dkv='docker volume'
+alias dkn='docker network'
 
 alias dkRm='
 (docker-compose down ; docker kill `docker ps -aq`) 2> /dev/null ;  echo "Containers stopped" ;

@@ -36,9 +36,10 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(\#qN.mh+24) ]]; then
-  compinit;
+    compinit;
 else
-  compinit -C;
+    echo "[!] compinit"
+    compinit -C;
 fi;
 
 # enable completion on manual page ?
