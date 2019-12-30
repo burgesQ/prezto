@@ -24,12 +24,12 @@ bindkey  '^[[1;5C'   emacs-forward-word
 bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
 
-# old prompt behavior
+# fix wired prompt behavior
 setopt prompt_sp
 setopt prompt_cr
 # setopt prompt_opts
 
-# don't save failed cmd to history
+# don't save failed cmd to history file
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # fix completion not working

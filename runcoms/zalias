@@ -8,6 +8,7 @@ alias md='mkdir'
 
 alias grep='grep --color=auto -HIn' # color, line, no binary
 alias ls='ls --color=auto'
+alias ip='ip -color'
 
 alias ll='ls -l'
 alias la='ls -la'
@@ -17,10 +18,20 @@ alias l.='ls -d .*'
 
 alias pong='ping -c 3 google.com'
 
+# network
+alias ports=" netstat -lntup"
+alias wifi='nmcli d wifi'
+alias netDevice='nmap -sn'
+
+
 # sudo support alias
 alias sudo='sudo '
 alias please='sudo '
 alias pls='sudo '
+
+# weather alias
+alias weatherP='curl http://v2.wttr.in/Paris'
+alias weatherB='curl http://v2.wttr.in/Berlin'
 
 # rehl
 # alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
@@ -31,9 +42,7 @@ alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ;
 # sort file by size
 alias ducks='du -cksh * | sort -rh | head -10'
 
-# disaply what using what
-alias ports=" netstat -lntup"
-
+# cmd stats
 function zsh_stat() {
     fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
@@ -48,22 +57,18 @@ alias mke='make re && '
 alias cmk='cmake ../ && make -j4'
 
 # docker cmake sems
-alias dmakec='docker run -it --rm -v `pwd`:/src/delegated \
+alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
   -e "CXX=/usr/bin/clang++" \
   -e "CC=/usr/bin/clang" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
-alias dmakeg='docker run -it --rm -v `pwd`:/src/delegated \
+alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
 # valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
-
-# package manager alias
-alias 'apt-get'='sudo apt-get'
-alias 'apt'='sudo apt'
 
 # The fuck alias
 # alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
@@ -186,7 +191,3 @@ docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
 
 alias lzdk=lazydocker
-
-# weather alias
-alias weatherP='curl http://v2.wttr.in/Paris'
-alias weatherB='curl http://v2.wttr.in/Berlin'
