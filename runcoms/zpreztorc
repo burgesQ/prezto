@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'completion' \
   'docker' \
-  'contrib-prompt' \
   'prompt' \
   'history-search-multi-word' \
   'syntax-highlighting' \
@@ -152,7 +151,7 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'spaceship'
+zstyle ':prezto:module:prompt' theme 'pure'
 
 # set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
