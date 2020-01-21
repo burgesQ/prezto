@@ -24,7 +24,7 @@ bindkey  '^[[1;5C'   emacs-forward-word
 bindkey  '^[[3;5~'   delete-word
 bindkey   '^[[3~'    delete-char
 
-# fix wired prompt behavior
+# old prompt behavior
 setopt prompt_sp
 setopt prompt_cr
 # setopt prompt_opts
@@ -144,7 +144,6 @@ SPACESHIP_RPROMPT_ORDER=(
     host          # Hostname section
 )
 
-<<<<<<< HEAD
 # # gpg stuffs / yubikey stuff
 # export KEYID="0x24EAA460E535BEE5"
 # export GPG_TTY="$(tty)"
