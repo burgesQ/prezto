@@ -16,7 +16,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 # GO specification
 export GOPATH=$HOME/repo/go
 export GO11MODULE=on
-export GOPRIVATE="gitlab.frafos.net/gommon"
+# export GOPRIVATE="gitlab.frafos.net/gommon"
 
 
 # Path

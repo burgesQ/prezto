@@ -58,6 +58,7 @@ alias cmk='cmake ../ && make -j4'
 
 # docker cmake sems
 alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
+  -v /home/master/repo/docker/custom-stack/custom_dev/bash_history:/root/.bash_history \
   -e "CXX=/usr/bin/clang++" \
   -e "CC=/usr/bin/clang" \
   -e "MAKE_FLAGS=-k -j4" \
@@ -146,6 +147,9 @@ alias gs='git status'
 alias greset='git reset'
 alias gresetH='git reset --hard'
 alias gdiff='git diff'
+
+alias untrackedBranch='git branch --list --format "%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)"'
+alias removeUntrackedBranch='untrackedBranch | xargs git branch -D'
 
 alias tag='git tag'
 alias tagL='git tag -n1'
