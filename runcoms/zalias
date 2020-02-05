@@ -195,3 +195,8 @@ docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
 
 alias lzdk=lazydocker
+
+
+## frafos comment
+redisSems='redis-cli -p 6379'
+redisMonit='redis-cli -p 6380'

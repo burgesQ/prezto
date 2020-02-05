@@ -34,3 +34,5 @@ export PAGER='less'
 export WATCH='all'
 
 export TERM="xterm-256color"
+
+export GTI_SPEED=10000
