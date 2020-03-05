@@ -28,6 +28,11 @@ Completion
 Loads and configures tab completion and provides additional completions from
 the zsh-completions project.
 
+Composer
+---------
+
+Composer modules
+
 Directory
 ---------
 
@@ -62,6 +67,11 @@ Fasd
 ----
 
 Maintains a frequently used file and directory list for fast access.
+
+Fast sybtax highlighting
+------------------------------
+
+Fast synthax highlightininh modules
 
 Git
 ---
@@ -98,6 +108,9 @@ History Substring Search
 ------------------------
 
 Integrates zsh-history-substring-search into Prezto.
+
+History search multi work
+------------------------------
 
 Homebrew
 --------
