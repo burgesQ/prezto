@@ -38,8 +38,8 @@ function zprezto-update {
       local REMOTE=$(git rev-parse "$UPSTREAM")
       local BASE=$(git merge-base HEAD "$UPSTREAM")
       if [[ $LOCAL == $REMOTE ]]; then
-	printf "There are no updates.\n"
-	return 0
+        printf "There are no updates.\n"
+        return 0
       elif [[ $LOCAL == $BASE ]]; then
         printf "There is an update available. Trying to pull.\n\n"
         if git pull --ff-only; then
@@ -51,11 +51,11 @@ function zprezto-update {
           return 1
         fi
       elif [[ $REMOTE == $BASE ]]; then
-	cannot-fast-forward "Commits in master that aren't in upstream."
-	return 1
+        cannot-fast-forward "Commits in master that aren't in upstream."
+        return 1
       else
-	cannot-fast-forward "Upstream and local have diverged."
-	return 1
+        cannot-fast-forward "Upstream and local have diverged."
+        return 1
       fi
     else
       printf "zprezto install at '%s' is not on the master branch " "${ZPREZTODIR}"
@@ -130,17 +130,17 @@ function pmodload {
       fi
 
       if (( $? == 0 )); then
-	zstyle ":prezto:module:$pmodule" loaded 'yes'
+        zstyle ":prezto:module:$pmodule" loaded 'yes'
       else
         # Remove the $fpath entry.
         fpath[(r)${pmodule_location}/functions]=()
 
-	function {
-	  local pfunction
+        function {
+          local pfunction
 
-	  # Extended globbing is needed for listing autoloadable function
-	  # directories.
-	  setopt LOCAL_OPTIONS EXTENDED_GLOB
+          # Extended globbing is needed for listing autoloadable function
+          # directories.
+          setopt LOCAL_OPTIONS EXTENDED_GLOB
 
           # Unload Prezto functions.
           for pfunction in ${pmodule_location}/functions/$~pfunction_glob; do
@@ -148,7 +148,7 @@ function pmodload {
           done
         }
 
-	zstyle ":prezto:module:$pmodule" loaded 'no'
+        zstyle ":prezto:module:$pmodule" loaded 'no'
       fi
     fi
   done
