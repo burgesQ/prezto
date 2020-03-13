@@ -195,3 +195,11 @@ docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
 
 alias lzdk=lazydocker
+
+
+# frafos alias
+
+alias redisSems='redis-cli -p 6379'
+alias redisMonit='redis-cli -p 6380'
+alias copySems='cp build/lib/*.so /lib/sems/plug-in && cp build/lib/dsm_mods/*.so /lib/sems/dsm && cp build/bin/sems /sbin/'
+alias gdbSems='gdb --args /sbin/sems'
