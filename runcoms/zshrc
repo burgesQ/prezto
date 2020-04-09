@@ -30,7 +30,9 @@ setopt prompt_cr
 # setopt prompt_opts
 
 # don't save failed cmd to history file
-zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+zshaddhistory() {
+  whence ${${(z)1}[1]} >| /dev/null || return 1
+}
 
 # fix completion not working
 # https://gist.github.com/ctechols/ca1035271ad134841284

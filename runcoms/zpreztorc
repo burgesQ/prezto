@@ -58,6 +58,8 @@ zstyle ':prezto:module:autosuggestions' color 'yes'
 # Set the querys found color.
 zstyle ':prezto:module:autosuggestions:color' found ''
 
+# ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+
 #
 # Completions
 #
@@ -224,8 +226,8 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 
 # Set syntax pattern styles.
 zstyle ':prezto:module:syntax-highlighting' pattern \
-   'rm -r' 'fg=red,bold'
-
+   'rm -r' 'fg=red,bold' \
+   'master --force' 'fg=red,bold'
 #
 # Terminal
 #

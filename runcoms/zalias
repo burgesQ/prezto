@@ -2,60 +2,68 @@
 #
 # zsh MOFO alias
 
-# bas habit alias
+#
+# bad habits alias
+#
 
 alias md='mkdir'
-
 alias grep='grep --color=auto -HIn' # color, line, no binary
 alias ls='ls --color=auto'
 alias ip='ip -color'
-
 alias ll='ls -l'
 alias la='ls -la'
 alias l='ls -la'
 alias lt='ls -lat'
 alias l.='ls -d .*'
+# rehl
+# alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+#
+# network alias
+#
 
 alias pong='ping -c 3 google.com'
-
-# network
 alias ports=" netstat -lntup"
 alias wifi='nmcli d wifi'
 alias netDevice='nmap -sn'
+alias ipt='echo -e "\n.......RAW......\n" && sudo iptables -t raw -L -n -v && echo -e "\n.......MANGLE.......\n" && sudo iptables -t mangle -L -n && echo -e "\n.......NAT......\n" && sudo iptables -t nat -L -n && echo -e "\n.......FILTER......\n" && sudo iptables -L -n -v'
 
+#
+# sudo alias
+#
 
-# sudo support alias
 alias sudo='sudo '
 alias please='sudo '
 alias pls='sudo '
 
+#
 # weather alias
-alias weatherP='curl http://v2.wttr.in/Paris'
-alias weatherB='curl http://v2.wttr.in/Berlin'
+#
 
-# rehl
-# alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+alias weatherParis='curl http://v2.wttr.in/Paris'
+alias weatherBerlin='curl http://v2.wttr.in/Berlin'
 
-# clean emacs file
+# clean emacs remaning files
 alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ; echo mr_clean : all temporary file deleted'
 
 # sort file by size
 alias ducks='du -cksh * | sort -rh | head -10'
 
-# cmd stats
+# zsh stats
 function zsh_stat() {
     fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
 # generate self signed certificate
-genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
+alias genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
 
+#
 # Compiled-language alias
+#
 
 alias mk='make re -j4'
 alias mke='make re && '
 alias cmk='cmake ../ && make -j4'
-
 # docker cmake sems
 alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
   -v /home/master/repo/docker/custom-stack/custom_dev/bash_history:/root/.bash_history \
@@ -63,19 +71,20 @@ alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
   -e "CC=/usr/bin/clang" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
-
 alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
-
 # valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
 # The fuck alias
 # alias fuck-it='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
 
+#
 # Git alias
+#
 
+# checker
 alias checkGit='for D in */
 do
 echo
@@ -91,7 +100,6 @@ echo $D is not a git repo |lolcat
 fi
 echo
 done'
-
 alias checkGitRec="
 find . -print0 | while IFS= read -r -d '' f
 do
@@ -105,31 +113,38 @@ cd -
 fi
 done"
 
+# common one
+alias gstatus='git status'
+alias gs='git status'
+alias greset='git reset'
+alias gresetH='git reset --hard'
+alias gdiff='git diff'
+alias pull='git pull'
 alias add='git add'
 alias addP='git add -p'
-alias pull='git pull'
-alias push='git push'
 alias commit='git commit'
 alias checkout='git checkout'
 alias checkoutB='git checkout -b'
+alias push='git push'
 alias pushD='git push origin --delete'
 
+# read
 alias log="git log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(white)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
 alias logs="git log --graph --decorate --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%C(yellow) [%an]%Creset%C(auto)%d %s'"
-
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glogs="glog --stat"
 
-alias tagPL="git log --no-walk --tags --date=format:'%Y-%m-%d %H:%M:%S' --pretty='%C(cyan)%h%Creset %ad (%C(Green)%cr%C(reset))%x09 %d %s' --decorate=full"
-
+# branch
 alias branch='git branch'
 alias branchA='git branch --all'
 alias branchD='git branch -D'
 
+# fethcing
 alias fetch='git fetch'
 alias fetchO='git fetch origin'
 alias fetchA='git fetch --all'
 
+# stashing
 alias stash='git stash'
 alias stashD='git stash drop'
 alias stashP='git stash pop'
@@ -138,54 +153,53 @@ alias stashS='git stash show'
 alias stashSD='git stash show -p'
 alias stashSU='git stash save -u'
 
+# rebasing
 alias rebase='git rebase'
 alias rebaseC='git rebase --continue'
 alias rebaseA='git rebase --abort'
 
-alias gstatus='git status'
-alias gs='git status'
-alias greset='git reset'
-alias gresetH='git reset --hard'
-alias gdiff='git diff'
-
+# cleaning
 alias untrackedBranch='git branch --list --format "%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)"'
 alias removeUntrackedBranch='untrackedBranch | xargs git branch -D'
 
+# tagging
 alias tag='git tag'
 alias tagL='git tag -n1'
+alias tagPL="git log --no-walk --tags --date=format:'%Y-%m-%d %H:%M:%S' --pretty='%C(cyan)%h%Creset %ad (%C(Green)%cr%C(reset))%x09 %d %s' --decorate=full"
 
+# cherry picking
 alias chp='git cherry-pick'
 alias chpMC='git cherry-pick -m 1'
 alias chpA='git cherry-pick --abort'
 alias chpC='git cherry-pick --continue'
 
+# merging
 alias merge='git merge'
 alias mergeA='git merge --abort'
 
-# editor
+#
+# editor alias
+#
 
-alias ne="emacsclient -a ''"
 alias sne="sudo emacsclient -a ''"
 
-# docker
+#
+# docker alias
+#
 
 alias dk=docker
 alias dkc=docker-compose
-
 alias dkcb='docker-compose build'
 alias dkcu='docker-compose up'
 alias dkcd='docker-compose down'
 alias dkcs='docker-compose stop'
 alias dkce='docker-compose exec'
-
 alias dkr='docker run'
 alias dke='docker exec'
 alias dkb='docker build'
-
 alias dki='docker image'
 alias dkv='docker volume'
 alias dkn='docker network'
-
 alias dkRm='
 (docker-compose down ; docker kill `docker ps -aq`) 2> /dev/null ;  echo "Containers stopped" ;
 docker rm -v `docker ps -aq` 2> /dev/null ; echo "Containers & their associated volumes deleted" ;
@@ -193,13 +207,18 @@ docker volume rm `docker volume ls -f "dangling=true" -q` 2> /dev/null ; echo "E
 docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 '
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
-
 alias lzdk=lazydocker
 
-
+#
 # frafos alias
+#
 
 alias redisSems='redis-cli -p 6379'
 alias redisMonit='redis-cli -p 6380'
 alias copySems='cp build/lib/*.so /lib/sems/plug-in && cp build/lib/dsm_mods/*.so /lib/sems/dsm && cp build/bin/sems /sbin/'
 alias gdbSems='gdb --args /sbin/sems'
+
+# special alias for sipp
+export SIPP_FILE=invite
+alias sipp_send='sipp -i 192.168.56.1 -p 5050 -nd -sf ~/repo/stuffs/sipp/"$SIPP_FILE"_uac.xml -m 1 -d 100 '
+alias sipp_recv='sipp -i 192.168.56.1 -p 5040 -nd -sf ~/repo/stuffs/sipp/"$SIPP_FILE"_uas.xml  '
