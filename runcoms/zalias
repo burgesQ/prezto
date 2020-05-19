@@ -7,7 +7,7 @@
 #
 
 alias md='mkdir'
-alias grep='grep --color=auto -HIn' # color, line, no binary
+alias grep='grep --color=auto -HIn --exclude-dir=vendor --exclude-dir=node_modules' # color, line, no binary
 alias ls='ls --color=auto'
 alias ip='ip -color'
 alias ll='ls -l'
@@ -67,11 +67,14 @@ alias cmk='cmake ../ && make -j4'
 # docker cmake sems
 alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
   -v /home/master/repo/docker/custom-stack/custom_dev/bash_history:/root/.bash_history \
+  --user "$(id -u):$(id -g)" \
   -e "CXX=/usr/bin/clang++" \
   -e "CC=/usr/bin/clang" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
+
 alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated \
+  --user "$(id -u):$(id -g)" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 # valgrind shortcut
