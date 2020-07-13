@@ -225,3 +225,9 @@ alias gdbSems='gdb --args /sbin/sems'
 export SIPP_FILE=invite
 alias sipp_send='sipp -i 192.168.56.1 -p 5050 -nd -sf ~/repo/stuffs/sipp/"$SIPP_FILE"_uac.xml -m 1 -d 100 '
 alias sipp_recv='sipp -i 192.168.56.1 -p 5040 -nd -sf ~/repo/stuffs/sipp/"$SIPP_FILE"_uas.xml  '
+
+
+# go cli
+alias gme='go mod edit -replace '
+alias gmed='go mod edit -dropreplace '
+alias swagger='docker run -it --rm -v `pwd`:/data quay.io/goswagger/swagger'
