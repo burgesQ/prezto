@@ -212,6 +212,8 @@ docker rmi -f `docker image ls -aq` 2> /dev/null ; echo "Images deleted" ;
 alias extraDkRm='docker system prune --volumes ; echo "Her is something !"'
 alias lzdk=lazydocker
 
+alias dkils='docker images --format "{{.ID}}\t{{.Size}}\t{{.Tag}}\t{{.Repository}}" | sort -k 4'
+
 #
 # frafos alias
 #
