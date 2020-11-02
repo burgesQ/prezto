@@ -55,7 +55,7 @@ function zsh_stat() {
 }
 
 # generate self signed certificate
-alias genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
+# alias genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
 
 #
 # Compiled-language alias
@@ -197,6 +197,8 @@ alias dkcu='docker-compose up'
 alias dkcd='docker-compose down'
 alias dkcs='docker-compose stop'
 alias dkce='docker-compose exec'
+alias dkcl='docker-compose logs'
+alias dkclf='docker-compose logs --follow'
 alias dkr='docker run'
 alias dke='docker exec'
 alias dkb='docker build'
