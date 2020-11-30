@@ -7,7 +7,8 @@
 #
 
 alias md='mkdir'
-alias grep='grep --color=auto -HIn --exclude-dir=vendor --exclude-dir=node_modules' # color, line, no binary
+# color, line, no binary
+alias grep='grep --color=auto -HIn --exclude-dir=vendor --exclude-dir=node_modules --exclude-dir=timeshift'
 alias ls='ls --color=auto'
 alias ip='ip -color'
 alias ll='ls -l'
@@ -42,6 +43,9 @@ alias pls='sudo '
 
 alias weatherParis='curl http://v2.wttr.in/Paris'
 alias weatherBerlin='curl http://v2.wttr.in/Berlin'
+
+# flm
+aptListRepo="egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*"
 
 # clean emacs remaning files
 alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ; echo mr_clean : all temporary file deleted'
@@ -103,18 +107,6 @@ echo $D is not a git repo |lolcat
 fi
 echo
 done'
-alias checkGitRec="
-find . -print0 | while IFS= read -r -d '' f
-do
-echo $f
-if [ -d $f/.git ] ; then
-cd $f
-pwd | lolcat
-git status
-sleep 1
-cd -
-fi
-done"
 
 # common one
 alias gstatus='git status'
@@ -184,7 +176,12 @@ alias mergeA='git merge --abort'
 # editor alias
 #
 
-alias sne="sudo emacsclient -a ''"
+# copy to zshenv and gitconfig
+alias en="emacsclient -s spacemacsServer "
+alias sen="sudo en "
+
+# alias sne="sudo emacsclient27 -nw -a ''"
+# alias ne="emacsclient27 -nw -a ''"
 
 #
 # docker alias
@@ -199,7 +196,7 @@ alias dkcs='docker-compose stop'
 alias dkce='docker-compose exec'
 alias dkcl='docker-compose logs'
 alias dkclf='docker-compose logs --follow'
-alias dkr='docker run'
+alias dkr='docker run --rm'
 alias dke='docker exec'
 alias dkb='docker build'
 alias dki='docker image'
@@ -225,6 +222,12 @@ alias redisMonit='redis-cli -p 6380'
 alias copySems='cp build/lib/*.so /lib/sems/plug-in && cp build/lib/dsm_mods/*.so /lib/sems/dsm && cp build/bin/sems /sbin/'
 alias gdbSems='gdb --args /sbin/sems'
 
+# generate and fix/edit clang compile commands
+alias genSemsCompile='dmakec sems-dev cmake -H. -Bbuild $CMAKE_FLAGS -DCMAKE_EXPORT_COMPILE_COMMANDS=1'
+alias editSemsCompile='sed -i -e "s,/usr/bin/clang++,clang++,g" ./build/compile_commands.json && \
+sed -i -e "s,/src,/home/master/repo/sbc/src/sems,g" ./build/compile_commands.json && \
+ln -rfs ./build/compile_commands.json .'
+
 # special alias for sipp
 export SIPP_FILE=invite
 alias sipp_send='sipp -i 192.168.56.1 -p 5050 -nd -sf ~/repo/stuffs/sipp/"$SIPP_FILE"_uac.xml -m 1 -d 100 '
@@ -235,3 +238,6 @@ alias sipp_recv='sipp -i 192.168.56.1 -p 5040 -nd -sf ~/repo/stuffs/sipp/"$SIPP_
 alias gme='go mod edit -replace '
 alias gmed='go mod edit -dropreplace '
 alias swagger='docker run -it --rm -v `pwd`:/data quay.io/goswagger/swagger'
+
+alias mv='mv -g'
+alias cp='cp -g'

@@ -64,4 +64,4 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # disable default behavior compinit
-export skip_global_compinit=1
+# export skip_global_compinit=1

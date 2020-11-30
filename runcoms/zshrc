@@ -16,6 +16,9 @@ fi
 # Alias
 source $HOME/.zalias
 
+# add auto-completion directory to zsh's fpath
+fpath=($HOME/.zsh/completion $fpath)
+
 # Termcaps
 bindkey  '^[[1;5A'   up-line-or-history
 bindkey  '^[[1;5B'   down-line-or-history
@@ -82,23 +85,29 @@ SPACESHIP_HOST_PREFIX="@"
 SPACESHIP_HOST_SUFFIX=""
 
 SPACESHIP_DIR_SHOW=true
-SPACESHIP_DIR_PREFIX="➜ "
+# SPACESHIP_DIR_PREFIX="➜ "
 SPACESHIP_DIR_TRUNC=0
 # SPACESHIP_DIR_TRUNC_PREFIX=".../"
 SPACESHIP_DIR_TRUNC_REPO=false
 
 # spaceship git cfg
 SPACESHIP_GIT_PREFIX=""
-SPACESHIP_GIT_STATUS_PREFIX="["
-SPACESHIP_GIT_STATUS_SUFFIX="]"
+# SPACESHIP_GIT_STATUS_PREFIX="["
+# SPACESHIP_GIT_STATUS_SUFFIX="]"
 SPACESHIP_GIT_BRANCH_COLOR="243"
-SPACESHIP_GIT_STATUS_DIVERGED="!⇣⇡"
+# SPACESHIP_GIT_STATUS_DIVERGED="!⇣⇡"
+# need mod from https://github.com/denysdovhan/spaceship-prompt/pull/443
+SPACESHIP_GIT_BRANCH_SHOW_COMMIT=false
+SPACESHIP_GIT_BRANCH_SHOW_TAG=true
+SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL=" 🚩 "
+SPACESHIP_GIT_BRANCH_TAG_SYMBOL=" 🏷️  "
+
 
 # spaceship battery cfg
 SPACESHIP_BATTERY_SHOW="true"
 SPACESHIP_BATTERY_THRESHOLD="100"
-SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡ "
-SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣ "
+# SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡ "
+# SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣ "
 
 # spaceship status code cfg
 SPACESHIP_EXIT_CODE_SHOW=true
@@ -112,6 +121,8 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # git status
   package       # Package version
+
+  # thefuck       # the fuck !
 
   node          # Node.js section
   ruby          # Ruby section
@@ -151,3 +162,6 @@ export KEYID="0x24EAA460E535BEE5"
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 gpg-connect-agent updatestartuptty /bye > /dev/null
+
+# # the fuck
+# eval $(thefuck --alias)
