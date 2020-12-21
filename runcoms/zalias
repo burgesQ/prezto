@@ -16,6 +16,7 @@ alias la='ls -la'
 alias l='ls -la'
 alias lt='ls -lat'
 alias l.='ls -d .*'
+
 # rehl
 # alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
@@ -45,7 +46,7 @@ alias weatherParis='curl http://v2.wttr.in/Paris'
 alias weatherBerlin='curl http://v2.wttr.in/Berlin'
 
 # flm
-aptListRepo="egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*"
+alias aptListRepo="egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*"
 
 # clean emacs remaning files
 alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ; echo mr_clean : all temporary file deleted'
@@ -57,9 +58,6 @@ alias ducks='du -cksh * | sort -rh | head -10'
 function zsh_stat() {
     fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
-
-# generate self signed certificate
-# alias genThatCert="openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key"
 
 #
 # Compiled-language alias
@@ -81,6 +79,7 @@ alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated \
   --user "$(id -u):$(id -g)" \
   -e "MAKE_FLAGS=-k -j4" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
+
 # valgrind shortcut
 alias sval='valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all'
 
@@ -235,9 +234,10 @@ alias sipp_recv='sipp -i 192.168.56.1 -p 5040 -nd -sf ~/repo/stuffs/sipp/"$SIPP_
 
 
 # go cli
-alias gme='go mod edit -replace '
-alias gmed='go mod edit -dropreplace '
-alias swagger='docker run -it --rm -v `pwd`:/data quay.io/goswagger/swagger'
+alias gome='go mod edit -replace '
+alias gomed='go mod edit -dropreplace '
+
+# https://ostechnix.com/advanced-copy-add-progress-bar-to-cp-and-mv-commands-in-linux/
 
 alias mv='mv -g'
 alias cp='cp -g'
