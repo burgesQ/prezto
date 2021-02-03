@@ -158,10 +158,10 @@ SPACESHIP_RPROMPT_ORDER=(
 )
 
 # gpg stuffs / yubikey stuff
-export KEYID="0x24EAA460E535BEE5"
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
+# export KEYID="0x24EAA460E535BEE5"
+# export GPG_TTY="$(tty)"
+# export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+# gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # # the fuck
 # eval $(thefuck --alias)

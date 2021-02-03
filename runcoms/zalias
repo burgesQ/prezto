@@ -67,12 +67,13 @@ alias mk='make re -j4'
 alias mke='make re && '
 alias cmk='cmake ../ && make -j4'
 # docker cmake sems
-alias dmakec='docker run -it --rm -v `pwd`:/src:delegated \
+export MAKE_J_PROC=4
+alias dmake='docker run -it --rm -v `pwd`:/src:delegated \
   -v /home/master/repo/docker/custom-stack/custom_dev/bash_history:/root/.bash_history \
   --user "$(id -u):$(id -g)" \
   -e "CXX=/usr/bin/clang++" \
   -e "CC=/usr/bin/clang" \
-  -e "MAKE_FLAGS=-k -j4" \
+  -e "MAKE_FLAGS=-k -j$MAKE_J_PROC" \
   -e "CMAKE_FLAGS=-DCMAKE_BUILD_TYPE=DEBUG" '
 
 alias dmakeg='docker run -it --rm -v `pwd`:/src:delegated \
@@ -222,7 +223,7 @@ alias copySems='cp build/lib/*.so /lib/sems/plug-in && cp build/lib/dsm_mods/*.s
 alias gdbSems='gdb --args /sbin/sems'
 
 # generate and fix/edit clang compile commands
-alias genSemsCompile='dmakec sems-dev cmake -H. -Bbuild $CMAKE_FLAGS -DCMAKE_EXPORT_COMPILE_COMMANDS=1'
+alias genSemsCompile='dmake sems-dev cmake -H. -Bbuild $CMAKE_FLAGS -DCMAKE_EXPORT_COMPILE_COMMANDS=1'
 alias editSemsCompile='sed -i -e "s,/usr/bin/clang++,clang++,g" ./build/compile_commands.json && \
 sed -i -e "s,/src,/home/master/repo/sbc/src/sems,g" ./build/compile_commands.json && \
 ln -rfs ./build/compile_commands.json .'
@@ -238,6 +239,5 @@ alias gome='go mod edit -replace '
 alias gomed='go mod edit -dropreplace '
 
 # https://ostechnix.com/advanced-copy-add-progress-bar-to-cp-and-mv-commands-in-linux/
-
 alias mv='mv -g'
 alias cp='cp -g'
