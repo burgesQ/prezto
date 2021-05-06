@@ -45,7 +45,9 @@ zstyle ':prezto:load' pmodule \
   'history-search-multi-word' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'autosuggestions'
+  'autosuggestions' \
+  'thefuck'
+
 
 #
 # Autosuggestions
@@ -102,16 +104,16 @@ zstyle ':prezto:module:git:alias' skip 'yes'
 #
 
 # Number of entries to show (default is $LINES/3)
-zstyle ":history-search-multi-word" page-size "5"
+zstyle ":plugin:history-search-multi-word" page-size "$LINE/4"
 
 # Color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
-zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold"
+zstyle ":plugin:history-search-multi-word" highlight-color "fg=yellow,bold"
 
 # Whether to perform syntax highlighting (default true)
 zstyle ":plugin:history-search-multi-word" synhl "yes"
 
 # Effect on active history entry. Try: standout, bold, bg=blue (default underline)
-zstyle ":plugin:history-search-multi-word" active "underline"
+zstyle ":plugin:history-search-multi-word" active "standout, bold, bg=blue"
 
 # Whether to check paths for existence and mark with magenta (default true)
 zstyle ":plugin:history-search-multi-word" check-paths "yes"

@@ -122,8 +122,6 @@ SPACESHIP_PROMPT_ORDER=(
   git           # git status
   package       # Package version
 
-  # thefuck       # the fuck !
-
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -163,5 +161,6 @@ SPACESHIP_RPROMPT_ORDER=(
 # export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 # gpg-connect-agent updatestartuptty /bye > /dev/null
 
-# # the fuck
-# eval $(thefuck --alias)
+
+# handle `/` as a break word
+WORDCHARS='*?_.[]~=&;!#$%^(){}<>'

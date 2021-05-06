@@ -8,7 +8,9 @@
 
 alias md='mkdir'
 # color, line, no binary
-alias grep='grep --color=auto -HIn --exclude-dir=vendor --exclude-dir=node_modules --exclude-dir=timeshift'
+alias grep='grep --color=auto --exclude-dir=vendor --exclude-dir=node_modules --exclude-dir=timeshift'
+alias ggrep='grep -HIn'
+alias ccat='pygmentize -g'
 alias ls='ls --color=auto'
 alias ip='ip -color'
 alias ll='ls -l'
@@ -49,7 +51,7 @@ alias weatherBerlin='curl http://v2.wttr.in/Berlin'
 alias aptListRepo="egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*"
 
 # clean emacs remaning files
-alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" \) -print -delete ; echo mr_clean : all temporary file deleted'
+alias cl='find . \( -name "#*#" -o -name "*~" -o -name ".#*" -o -name "*.prof" -o -name "*.md.temp" \) -print -delete ; echo mr_clean : all temporary file deleted'
 
 # sort file by size
 alias ducks='du -cksh * | sort -rh | head -10'
